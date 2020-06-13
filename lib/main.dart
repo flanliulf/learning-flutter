@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/plugin_usage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(PluginUsage());
 }
 
 class MyApp extends StatelessWidget {

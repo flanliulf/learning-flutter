@@ -2,15 +2,36 @@
 
 A new Flutter project.
 
-## Getting Started
+## 如何使用 Flutter 包和插件
 
-This project is a starting point for a Flutter application.
+官网:
 
-A few resources to get you started if this is your first Flutter project:
+- [Dart Packages](https://pub.dev)
+- [Flutter Color Plugin](https://pub.dev/packages/flutter_color_plugin#)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Use this package as a library
+### 1. Depend on it
+Add this to your package's pubspec.yaml file:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+dependencies:
+  flutter_color_plugin: ^0.0.2
+```
+
+### 2. Install it
+You can install packages from the command line:
+
+with Flutter:
+
+```
+$ flutter pub get
+```
+
+Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.
+
+### 3. Import it
+Now in your Dart code, you can use:
+
+```
+import 'package:flutter_color_plugin/flutter_color_plugin.dart';
+```
