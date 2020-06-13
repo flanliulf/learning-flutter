@@ -8,6 +8,9 @@ class StatefulGroupUsage extends StatefulWidget {
 }
 
 class _StatefulGroupUsageState extends State<StatefulGroupUsage> {
+  // 底部导航栏索引
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,30 +22,37 @@ class _StatefulGroupUsageState extends State<StatefulGroupUsage> {
         appBar: AppBar(
           title: Text('StatefulWidget 常用组件'),
         ),
-        bottomNavigationBar: BottomNavigationBar(items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: Colors.grey,
-            ),
-            activeIcon: Icon(
-              Icons.home,
-              color: Colors.blue,
-            ),
-            title: Text('首页'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.list,
-              color: Colors.grey,
-            ),
-            activeIcon: Icon(
-              Icons.list,
-              color: Colors.blue,
-            ),
-            title: Text('列表'),
-          ),
-        ]),
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _currentIndex,
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.grey,
+                ),
+                activeIcon: Icon(
+                  Icons.home,
+                  color: Colors.blue,
+                ),
+                title: Text('首页'),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.list,
+                  color: Colors.grey,
+                ),
+                activeIcon: Icon(
+                  Icons.list,
+                  color: Colors.blue,
+                ),
+                title: Text('列表'),
+              ),
+            ]),
         body: Container(
           decoration: BoxDecoration(color: Colors.white),
           alignment: Alignment.center,
