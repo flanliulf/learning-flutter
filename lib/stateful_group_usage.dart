@@ -66,47 +66,33 @@ class _StatefulGroupUsageState extends State<StatefulGroupUsage> {
                         alignment: Alignment.center,
                         child: Column(
                           children: <Widget>[
-                            Text(
-                              'I am a Text',
-                              style: TextStyle(
-                                fontSize: 20,
+                            Image.network(
+                              'http://www.devio.org/img/avatar.png',
+                              width: 100,
+                              height: 100,
+                            ),
+                            TextField(
+                              // 文本输入框的样式
+                              decoration: InputDecoration(
+                                  contentPadding:
+                                      EdgeInsets.fromLTRB(5, 0, 0, 0),
+                                  hintText: '请输入',
+                                  hintStyle: TextStyle(fontSize: 15)),
+                            ),
+                            Container(
+                              height: 100,
+                              margin: EdgeInsets.only(top: 10),
+                              decoration:
+                                  BoxDecoration(color: Colors.lightBlueAccent),
+                              child: PageView(
+                                children: <Widget>[
+                                  _item('Page1', Colors.blue),
+                                  _item('Page2', Colors.yellow),
+                                  _item('Page3', Colors.red),
+                                  _item('Page4', Colors.green),
+                                ],
                               ),
                             ),
-                            Icon(
-                              Icons.android,
-                              size: 50,
-                              color: Colors.green,
-                            ),
-                            CloseButton(),
-                            BackButton(),
-                            Chip(
-                              label: Text('I am a chip'),
-                              avatar: Icon(Icons.person),
-                            ),
-                            Divider(
-                              height: 10, // 容器高度,而非分割线的高度
-                              indent: 10, // 左侧间距
-                              color: Colors.orange,
-                            ),
-                            Card(
-                              // 带有圆角,阴影,边框等效果的卡片
-                              color: Colors.blue,
-                              elevation: 5,
-                              margin: EdgeInsets.all(10),
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                child: Text(
-                                  'I am a Card',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            AlertDialog(
-                              title: Text('点我'),
-                              content: Text('Here is content'),
-                            )
                           ],
                         ),
                       ),
@@ -122,5 +108,16 @@ class _StatefulGroupUsageState extends State<StatefulGroupUsage> {
   Future<Null> _handleRefresh() async {
     await Future.delayed(Duration(milliseconds: 200));
     return null;
+  }
+
+  _item(String title, Color color) {
+    return Container(
+      alignment: Alignment.center,
+      decoration: BoxDecoration(color: color),
+      child: Text(
+        title,
+        style: TextStyle(color: Colors.white, fontSize: 22),
+      ),
+    );
   }
 }
