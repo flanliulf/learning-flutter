@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 
 /// 演示 StatelessWidget 组件使用
-class LessGroupUsage extends StatelessWidget {
+class StatelessGroupUsage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
