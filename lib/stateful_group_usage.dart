@@ -53,59 +53,74 @@ class _StatefulGroupUsageState extends State<StatefulGroupUsage> {
                   title: Text('列表'),
                 ),
               ]),
+          floatingActionButton: FloatingActionButton(
+            onPressed: null,
+            child: Text('点我'),
+          ),
           body: _currentIndex == 0
-              ? Container(
-                  decoration: BoxDecoration(color: Colors.white),
-                  alignment: Alignment.center,
-                  child: Column(
+              ? RefreshIndicator(
+                  child: ListView(
                     children: <Widget>[
-                      Text(
-                        'I am a Text',
-                        style: TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                      Icon(
-                        Icons.android,
-                        size: 50,
-                        color: Colors.green,
-                      ),
-                      CloseButton(),
-                      BackButton(),
-                      Chip(
-                        label: Text('I am a chip'),
-                        avatar: Icon(Icons.person),
-                      ),
-                      Divider(
-                        height: 10, // 容器高度,而非分割线的高度
-                        indent: 10, // 左侧间距
-                        color: Colors.orange,
-                      ),
-                      Card(
-                        // 带有圆角,阴影,边框等效果的卡片
-                        color: Colors.blue,
-                        elevation: 5,
-                        margin: EdgeInsets.all(10),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            'I am a Card',
-                            style: TextStyle(
-                              fontSize: 20,
+                      Container(
+                        decoration: BoxDecoration(color: Colors.white),
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'I am a Text',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
                             ),
-                          ),
+                            Icon(
+                              Icons.android,
+                              size: 50,
+                              color: Colors.green,
+                            ),
+                            CloseButton(),
+                            BackButton(),
+                            Chip(
+                              label: Text('I am a chip'),
+                              avatar: Icon(Icons.person),
+                            ),
+                            Divider(
+                              height: 10, // 容器高度,而非分割线的高度
+                              indent: 10, // 左侧间距
+                              color: Colors.orange,
+                            ),
+                            Card(
+                              // 带有圆角,阴影,边框等效果的卡片
+                              color: Colors.blue,
+                              elevation: 5,
+                              margin: EdgeInsets.all(10),
+                              child: Container(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  'I am a Card',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            AlertDialog(
+                              title: Text('点我'),
+                              content: Text('Here is content'),
+                            )
+                          ],
                         ),
                       ),
-                      AlertDialog(
-                        title: Text('点我'),
-                        content: Text('Here is content'),
-                      )
                     ],
                   ),
-                )
+                  onRefresh: _handleRefresh)
               : Container(
                   child: Text('Here is list page'),
                 )),
     );
+  }
+
+  Future<Null> _handleRefresh() async {
+    await Future.delayed(Duration(milliseconds: 200));
+    return null;
   }
 }
