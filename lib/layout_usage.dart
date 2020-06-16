@@ -124,20 +124,40 @@ class _LayoutUsageState extends State<LayoutUsage> {
                                     ],
                                   ),
                                 )),
-                              Column(
-                               children: <Widget>[
-                                 FractionallySizedBox(
-                                   // 宽度撑满比例
-                                   widthFactor: 1,
-                                   child: Container(
-                                     decoration: BoxDecoration(color: Colors.greenAccent),
-                                     child: Text('这里是撑满的文字'),
-                                   ),
-                                 )
-                               ],
-                              ),
+                            Column(
+                              children: <Widget>[
+                                FractionallySizedBox(
+                                  // 宽度撑满比例
+                                  widthFactor: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.greenAccent),
+                                    child: Text('这里是撑满的文字'),
+                                  ),
+                                )
+                              ],
+                            ),
                           ],
                         ),
+                      ),
+                      Divider(),
+                      Stack(
+                        children: <Widget>[
+                          Image.network(
+                            'http://www.devio.org/img/avatar.png',
+                            width: 100,
+                            height: 100,
+                          ),
+                          Positioned(
+                            left: 0,
+                            bottom: 0,
+                            child: Image.network(
+                              'http://www.devio.org/img/avatar.png',
+                              width: 36,
+                              height: 36,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
