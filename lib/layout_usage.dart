@@ -79,12 +79,24 @@ class _LayoutUsageState extends State<LayoutUsage> {
                                     ),
                                   ),
                                 ),
+                                Padding(
+                                  padding: EdgeInsets.all(10),
+                                  child: ClipRRect(
+                                    // 剪裁成圆角
+                                    borderRadius: BorderRadius.all(
+                                        // 四角都裁
+                                        Radius.circular(10)),
+                                    child: Opacity(
+                                      opacity: 0.6, // 60%透明度
+                                      child: Image.network(
+                                        'http://www.devio.org/img/avatar.png',
+                                        width: 100,
+                                        height: 100,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ],
-                            ),
-                            Image.network(
-                              'http://www.devio.org/img/avatar.png',
-                              width: 100,
-                              height: 100,
                             ),
                             TextField(
                               // 文本输入框的样式
