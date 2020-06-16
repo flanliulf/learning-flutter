@@ -159,6 +159,19 @@ class _LayoutUsageState extends State<LayoutUsage> {
                           ),
                         ],
                       ),
+                      Wrap(
+                        // 创建 Wrap 布局,从左到右进行排列,会自动换行
+                        spacing: 8, // 水平间距
+                        runSpacing: 6, // 垂直间距
+                        children: <Widget>[
+                          _chip('Flutter'),
+                          _chip('In'),
+                          _chip('Action'),
+                          _chip('实战'),
+                          _chip('进阶指南'),
+                          _chip('案例分析'),
+                        ],
+                      )
                     ],
                   ),
                   onRefresh: _handleRefresh)
@@ -180,6 +193,19 @@ class _LayoutUsageState extends State<LayoutUsage> {
       child: Text(
         title,
         style: TextStyle(color: Colors.white, fontSize: 22),
+      ),
+    );
+  }
+
+  _chip(String title) {
+    return Chip(
+      label: Text(title),
+      avatar: CircleAvatar(
+        backgroundColor: Colors.blue.shade900,
+        child: Text(
+          title.substring(0, 1),
+          style: TextStyle(fontSize: 10),
+        ),
       ),
     );
   }
