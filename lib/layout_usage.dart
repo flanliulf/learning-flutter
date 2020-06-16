@@ -124,6 +124,18 @@ class _LayoutUsageState extends State<LayoutUsage> {
                                     ],
                                   ),
                                 )),
+                              Column(
+                               children: <Widget>[
+                                 FractionallySizedBox(
+                                   // 宽度撑满比例
+                                   widthFactor: 1,
+                                   child: Container(
+                                     decoration: BoxDecoration(color: Colors.greenAccent),
+                                     child: Text('这里是撑满的文字'),
+                                   ),
+                                 )
+                               ],
+                              ),
                           ],
                         ),
                       ),
