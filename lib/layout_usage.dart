@@ -107,19 +107,23 @@ class _LayoutUsageState extends State<LayoutUsage> {
                                   hintStyle: TextStyle(fontSize: 15)),
                             ),
                             Container(
-                              height: 100,
-                              margin: EdgeInsets.only(top: 10),
-                              decoration:
-                                  BoxDecoration(color: Colors.lightBlueAccent),
-                              child: PageView(
-                                children: <Widget>[
-                                  _item('Page1', Colors.blue),
-                                  _item('Page2', Colors.yellow),
-                                  _item('Page3', Colors.red),
-                                  _item('Page4', Colors.green),
-                                ],
-                              ),
-                            ),
+                                height: 100,
+                                margin: EdgeInsets.all(10),
+                                child: PhysicalModel(
+                                  color: Colors.transparent,
+                                  // 圆角剪裁
+                                  borderRadius: BorderRadius.circular(20),
+                                  // 抗锯齿
+                                  clipBehavior: Clip.antiAlias,
+                                  child: PageView(
+                                    children: <Widget>[
+                                      _item('Page1', Colors.blue),
+                                      _item('Page2', Colors.yellow),
+                                      _item('Page3', Colors.red),
+                                      _item('Page4', Colors.green),
+                                    ],
+                                  ),
+                                )),
                           ],
                         ),
                       ),
