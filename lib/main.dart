@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learning_flutter/GestureUsage.dart';
+import 'package:learning_flutter/assets_usage.dart';
+import 'package:learning_flutter/gesture_usage.dart';
 import 'package:learning_flutter/layout_usage.dart';
 import 'package:learning_flutter/stateful_group_usage.dart';
 import 'package:learning_flutter/stateless_group_usage.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
         'layout': (BuildContext context) => LayoutUsage(),
         'plugin': (BuildContext context) => PluginUsage(),
         'gesture': (BuildContext context) => GestureUsage(),
+        'assets': (BuildContext context) => AssetsUsage(),
       },
     );
   }
@@ -75,6 +77,7 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('StatefulWidget 常用组件', StatefulGroupUsage(), 'stateful'),
           _item('如何进行 Flutter 布局开发', LayoutUsage(), 'layout'),
           _item('如何检测手势及处理点击事件', GestureUsage(), 'gesture'),
+          _item('如何导入和使用 Flutter 的资源文件', AssetsUsage(), 'assets'),
         ],
       ),
     );
