@@ -8,6 +8,8 @@ class GestureUsage extends StatefulWidget {
 class _GestureUsageState extends State<GestureUsage> {
   String printString = '';
 
+  double moveX = 0, moveY = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,7 +50,23 @@ class _GestureUsageState extends State<GestureUsage> {
                   ),
                   Text(printString),
                 ],
-              )
+              ),
+              Positioned(
+                // 定义跟随手指滑动的小球
+                left: moveX,
+                top: moveY,
+                child: GestureDetector(
+                  onPanUpdate: (e) => _doMove(e),
+                  child: Container(
+                    height: 72,
+                    width: 72,
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(36),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -59,6 +77,13 @@ class _GestureUsageState extends State<GestureUsage> {
   _printMsg(String msg) {
     setState(() {
       printString += ' ,$msg';
+    });
+  }
+
+  _doMove(DragUpdateDetails e) {
+    setState(() {
+      moveY += e.delta.dy;
+      moveX += e.delta.dx;
     });
   }
 }
