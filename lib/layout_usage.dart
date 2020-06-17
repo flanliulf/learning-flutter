@@ -21,6 +21,13 @@ class _LayoutUsageState extends State<LayoutUsage> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('如何进行 Flutter 布局开发'),
+          // 左边返回按钮
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: _currentIndex,

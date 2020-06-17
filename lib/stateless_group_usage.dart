@@ -14,6 +14,13 @@ class StatelessGroupUsage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('StatelessWidget 常用组件'),
+          // 左边返回按钮
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
+          ),
         ),
         body: Container(
           decoration: BoxDecoration(color: Colors.white),

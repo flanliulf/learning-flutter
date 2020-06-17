@@ -21,6 +21,13 @@ class _StatefulGroupUsageState extends State<StatefulGroupUsage> {
       home: Scaffold(
           appBar: AppBar(
             title: Text('StatefulWidget 常用组件'),
+            // 左边返回按钮
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back),
+            ),
           ),
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: _currentIndex,
