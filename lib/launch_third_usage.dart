@@ -29,6 +29,10 @@ class _LaunchThirdUsageState extends State<LaunchThirdUsage> {
               onPressed: () => _launchURL(),
               child: Text('打开浏览器'),
             ),
+            RaisedButton(
+              onPressed: () => _launchMap(),
+              child: Text('打开地图'),
+            ),
           ],
         ),
       ),
@@ -41,6 +45,22 @@ class _LaunchThirdUsageState extends State<LaunchThirdUsage> {
       await launch(url);
     } else {
       throw 'Could not launch $url';
+    }
+  }
+
+  _launchMap() async {
+    // Android
+    const url = 'geo:52.32,4.917'; // APP提供者提供的 schema
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      // iOS
+      const url = 'http://maps.apple.com/?ll=52.32,4.917';
+      if (await canLaunch(url)) {
+        await launch(url);
+      } else {
+        throw 'Could not launch $url';
+      }
     }
   }
 }
