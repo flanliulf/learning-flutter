@@ -10,37 +10,46 @@ import 'package:learning_flutter/plugin_usage.dart';
 import 'package:learning_flutter/widget_lifecycle.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(DynamicTheme());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class DynamicTheme extends StatefulWidget {
+  @override
+  _DynamicThemeState createState() => _DynamicThemeState();
+}
+
+class _DynamicThemeState extends State<DynamicTheme> {
+  Brightness _brightness = Brightness.light;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        brightness: _brightness,
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('如何创建及使用 Flutter 路由和导航'),
-        ),
-        body: RouterNavigator(),
-      ),
+          appBar: AppBar(
+            title: Text('如何创建及使用 Flutter 路由和导航'),
+          ),
+          body: Column(
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  setState(() {
+                    if (_brightness == Brightness.light) {
+                      _brightness = Brightness.dark;
+                    } else {
+                      _brightness = Brightness.light;
+                    }
+                  });
+                },
+                child: Text('切换主题'),
+              ),
+              RouterNavigator(),
+            ],
+          )),
       routes: <String, WidgetBuilder>{
         // 注册路由
         'stateless': (BuildContext context) => StatelessGroupUsage(),
