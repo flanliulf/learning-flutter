@@ -26,6 +26,8 @@ class _DynamicThemeState extends State<DynamicTheme> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        // 设置页面全局字体
+//        fontFamily: "Roboto-BlackItalic",
         brightness: _brightness,
         primarySwatch: Colors.blue,
       ),
@@ -45,7 +47,13 @@ class _DynamicThemeState extends State<DynamicTheme> {
                     }
                   });
                 },
-                child: Text('切换主题'),
+                child: Text(
+                  '切换主题abc',
+                  style: TextStyle(
+                    // 局部组件应用字体
+                    fontFamily: "Roboto-BlackItalic",
+                  ),
+                ),
               ),
               RouterNavigator(),
             ],
