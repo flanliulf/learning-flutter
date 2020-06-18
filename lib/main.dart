@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/app_lifecycle.dart';
 import 'package:learning_flutter/assets_usage.dart';
 import 'package:learning_flutter/gesture_usage.dart';
 import 'package:learning_flutter/launch_third_usage.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         'assets': (BuildContext context) => AssetsUsage(),
         'launch': (BuildContext context) => LaunchThirdUsage(),
         'lifecycle': (BuildContext context) => WidgetLifecycle(),
+        'applifecycle': (BuildContext context) => AppLifecycle(),
       },
     );
   }
@@ -84,6 +86,7 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('如何导入和使用 Flutter 的资源文件', AssetsUsage(), 'assets'),
           _item('如何在 Flutter 中打开第三方应用', LaunchThirdUsage(), 'launch'),
           _item('Flutter 页面生命周期', WidgetLifecycle(), 'lifecycle'),
+          _item('Flutter 应用的生命周期', AppLifecycle(), 'applifecycle'),
         ],
       ),
     );
