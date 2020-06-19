@@ -10,7 +10,7 @@ class PhotoApp extends StatefulWidget {
 }
 
 class _PhotoAppState extends State<PhotoApp> {
-  File _image;
+  List<File> _images = [];
   final picker = ImagePicker();
 
   Future getImage(bool isTakePhoto) async {
@@ -20,7 +20,8 @@ class _PhotoAppState extends State<PhotoApp> {
         source: isTakePhoto ? ImageSource.camera : ImageSource.gallery);
 
     setState(() {
-      _image = File(pickedFile.path);
+//      _image = File(pickedFile.path);
+      _images.add(File(pickedFile.path));
     });
   }
 
@@ -38,7 +39,12 @@ class _PhotoAppState extends State<PhotoApp> {
         ),
       ),
       body: Center(
-        child: _image == null ? Text('No image selected.') : Image.file(_image),
+//        child: _image == null ? Text('No image selected.') : Image.file(_image),
+        child: Wrap(
+          spacing: 5,
+          runSpacing: 5,
+          children: _genImages(),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _pickImage,
@@ -70,5 +76,44 @@ class _PhotoAppState extends State<PhotoApp> {
         onTap: () => getImage(isTakePhoto),
       ),
     );
+  }
+
+  _genImages() {
+   return  _images.map((file) {
+      return Stack(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(5),
+            child: Image.file(
+              file,
+              width: 120,
+              height: 90,
+              fit: BoxFit.fill,
+            ),
+          ),
+          Positioned(
+              right: 5,
+              top: 5,
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _images.remove(file);
+                  });
+                },
+                child: ClipOval(
+                  child: Container(
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(color: Colors.black54),
+                    child: Icon(
+                      Icons.close,
+                      size: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              )),
+        ],
+      );
+    }).toList();
   }
 }
