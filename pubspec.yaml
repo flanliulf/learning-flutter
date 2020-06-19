@@ -34,7 +34,7 @@ dependencies:
   image_picker: ^0.6.7+2 # 照片选择器插件
   path_provider: ^1.6.11 # 相对路径插件
   transparent_image: ^1.0.0 # 图片透明插件
-  cached_network_image: ^2.2.0+1 # 网络图片缓存到本地插件
+#  cached_network_image: ^2.2.0+1 # 网络图片缓存到本地插件
 
 dev_dependencies:
   flutter_test:
