@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 /// 演示 图片Placeholder

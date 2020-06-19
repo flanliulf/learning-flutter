@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_flutter/app_lifecycle.dart';
 import 'package:learning_flutter/assets_usage.dart';
+import 'package:learning_flutter/cached_network_image.dart';
 import 'package:learning_flutter/gesture_usage.dart';
 import 'package:learning_flutter/launch_third_usage.dart';
 import 'package:learning_flutter/layout_usage.dart';
@@ -73,6 +74,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'applifecycle': (BuildContext context) => AppLifecycle(),
         'photoapp': (BuildContext context) => PhotoApp(),
         'imageplaceholder': (BuildContext context) => PlaceholderImage(),
+        'cachedimage': (BuildContext context) => CachedNetworkImageUsage(),
       },
     );
   }
@@ -110,6 +112,7 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('Flutter 应用的生命周期', AppLifecycle(), 'applifecycle'),
           _item('简单案例之拍照 App', PhotoApp(), 'photoapp'),
           _item('如何设置图片 Placeholder', PlaceholderImage(), 'imageplaceholder'),
+          _item('如何使用网络图片缓存', CachedNetworkImageUsage(), 'cachedimage'),
         ],
       ),
     );

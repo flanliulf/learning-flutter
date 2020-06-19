@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   flutter_color_plugin: ^0.0.2 # 颜色使用插件
   url_launcher: ^5.4.10 # launch 第三方应用插件
+  url_launcher_web: ^0.1.1+6
   image_picker: ^0.6.7+2 # 照片选择器插件
   path_provider: ^1.6.11 # 相对路径插件
   transparent_image: ^1.0.0 # 图片透明插件
