@@ -71,6 +71,9 @@ flutter:
     - family: Roboto-BlackItalic
       fonts:
         - asset: fonts/Roboto-BlackItalic.ttf
+    - family: iosIcon
+      fonts:
+        - asset: fonts/iosIcon.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

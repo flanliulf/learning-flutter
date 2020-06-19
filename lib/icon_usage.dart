@@ -22,12 +22,36 @@ class _IconUsageState extends State<IconUsage> {
         ),
       ),
       body: Center(
-        child: Icon(
-          Icons.android,
-          size: 100,
-          color: Colors.greenAccent,
-        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(MyIcons.iosDark, size: 64,),
+            Icon(MyIcons.iosLight, size: 64,),
+            Icon(MyIcons.iosText, size: 64,),
+          ],
+        )
       ),
     );
   }
+}
+
+class MyIcons{
+  // iOS 黑色 图标
+  static const IconData iosDark = const IconData(
+      0xe676,
+      fontFamily: 'iosIcon',
+      matchTextDirection: true
+  );
+  // ios 浅色图标
+  static const IconData iosLight = const IconData(
+      0xe62a,
+      fontFamily: 'iosIcon',
+      matchTextDirection: true
+  );
+  // ios 文字图标
+  static const IconData iosText = const IconData(
+      0xe734,
+      fontFamily: 'iosIcon',
+      matchTextDirection: true
+  );
 }
