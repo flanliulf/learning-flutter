@@ -11,11 +11,11 @@ import 'package:learning_flutter/layout_usage.dart';
 import 'package:learning_flutter/photo_app.dart';
 import 'package:learning_flutter/placeholder_image.dart';
 import 'package:learning_flutter/plugin_usage.dart';
+import 'package:learning_flutter/radial_hero_usage.dart';
 import 'package:learning_flutter/standard_hero_usage.dart';
 import 'package:learning_flutter/stateful_group_usage.dart';
 import 'package:learning_flutter/stateless_group_usage.dart';
 import 'package:learning_flutter/widget_lifecycle.dart';
-import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
   runApp(DynamicTheme());
@@ -86,6 +86,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'animatedlogo': (BuildContext context) => AnimatedUsage(),
         'animatedwidget': (BuildContext context) => AnimatedWidgetUsage(),
         'hero': (BuildContext context) => StandardHeroUsage(),
+        'radialhero': (BuildContext context) => RadialHeroUsage(),
       },
     );
   }
@@ -130,6 +131,8 @@ class _RouterNavigatorState extends State<RouterNavigator> {
               'animatedwidget'),
           _item('标准 Hero 动画示例', StandardHeroUsage(),
               'hero'),
+          _item('径向发散 Hero 动画示例', RadialHeroUsage(),
+              'radialhero'),
         ],
       ),
     );
