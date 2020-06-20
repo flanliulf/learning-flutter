@@ -39,7 +39,9 @@ class _DynamicThemeState extends State<DynamicTheme> {
           appBar: AppBar(
             title: Text('如何创建及使用 Flutter 路由和导航'),
           ),
-          body: Column(
+          body: Scrollbar(
+              child: SingleChildScrollView(
+                  child: Column(
             children: <Widget>[
               RaisedButton(
                 onPressed: () {
@@ -61,7 +63,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
               ),
               RouterNavigator(),
             ],
-          )),
+          )))),
       routes: <String, WidgetBuilder>{
         // 注册路由
         'stateless': (BuildContext context) => StatelessGroupUsage(),
