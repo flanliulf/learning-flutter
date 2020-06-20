@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_flutter/animated_logo.dart';
 import 'package:learning_flutter/app_lifecycle.dart';
 import 'package:learning_flutter/assets_usage.dart';
 import 'package:learning_flutter/cached_network_image.dart';
@@ -79,6 +80,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'imageplaceholder': (BuildContext context) => PlaceholderImage(),
         'cachedimage': (BuildContext context) => CachedNetworkImageUsage(),
         'icon': (BuildContext context) => IconUsage(),
+        'animatedlogo': (BuildContext context) => AnimatedLogo(),
       },
     );
   }
@@ -118,6 +120,7 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('如何设置图片 Placeholder', PlaceholderImage(), 'imageplaceholder'),
           _item('如何使用网络图片缓存', CachedNetworkImageUsage(), 'cachedimage'),
           _item('如何加载Icon图标', IconUsage(), 'icon'),
+          _item('如何给 Widget 添加动画', AnimatedLogo(), 'animatedlogo'),
         ],
       ),
     );
