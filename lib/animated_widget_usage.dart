@@ -1,27 +1,39 @@
 import 'package:flutter/material.dart';
 
-/// 使用 AnimatedWidget 重构动画
+/// 使用 AnimatedBuilder 将动画和 widget 进行分离
 class AnimatedWidgetUsage extends StatefulWidget {
   @override
   _AnimatedWidgetUsageState createState() => _AnimatedWidgetUsageState();
 }
 
-/// 使用 AnimatedWidget 后,不需要手动调用动画的 addListener 并在回调中添加 setState 才能看到效果,
-/// AnimatedWidget 会自动在 build 时使用动画的当前值
-class AnimatedLogo extends AnimatedWidget {
-  AnimatedLogo({Key key, Animation<double> animation})
-      : super(key: key, listenable: animation);
+/// 负责显示的 Widget
+class LogoWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: FlutterLogo(),
+    );
+  }
+}
+
+/// 负责动画的 Widget
+class GrowTransition extends StatelessWidget {
+  final Widget child;
+  final Animation<double> animation;
+
+  GrowTransition({Key key, this.child, this.animation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final Animation<double> animation = listenable;
-    return Center(
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (context, child) => Container(
         height: animation.value,
         width: animation.value,
-        child: FlutterLogo(),
+        child: child,
       ),
+      child: child,
     );
   }
 }
@@ -35,7 +47,7 @@ class _AnimatedWidgetUsageState extends State<AnimatedWidgetUsage>
   void initState() {
     super.initState();
     animationController = AnimationController(
-      // 动画执行时间为 2 秒
+        // 动画执行时间为 2 秒
         duration: const Duration(seconds: 2),
         vsync: this);
     // 如果需要知道动画执行的进度和状态,可以通过 animation 的监听器方法来给动画添加监听
@@ -55,7 +67,12 @@ class _AnimatedWidgetUsageState extends State<AnimatedWidgetUsage>
           },
         ),
       ),
-      body: AnimatedLogo(animation: animation),
+      body: Center(
+        child: GrowTransition(
+          animation: animation,
+          child: LogoWidget(),
+        ),
+      ),
     );
   }
 
