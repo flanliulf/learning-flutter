@@ -10,10 +10,12 @@ import 'package:learning_flutter/launch_third_usage.dart';
 import 'package:learning_flutter/layout_usage.dart';
 import 'package:learning_flutter/photo_app.dart';
 import 'package:learning_flutter/placeholder_image.dart';
+import 'package:learning_flutter/plugin_usage.dart';
+import 'package:learning_flutter/standard_hero_usage.dart';
 import 'package:learning_flutter/stateful_group_usage.dart';
 import 'package:learning_flutter/stateless_group_usage.dart';
-import 'package:learning_flutter/plugin_usage.dart';
 import 'package:learning_flutter/widget_lifecycle.dart';
+import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
   runApp(DynamicTheme());
@@ -83,6 +85,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'icon': (BuildContext context) => IconUsage(),
         'animatedlogo': (BuildContext context) => AnimatedUsage(),
         'animatedwidget': (BuildContext context) => AnimatedWidgetUsage(),
+        'hero': (BuildContext context) => StandardHeroUsage(),
       },
     );
   }
@@ -123,7 +126,10 @@ class _RouterNavigatorState extends State<RouterNavigator> {
           _item('如何使用网络图片缓存', CachedNetworkImageUsage(), 'cachedimage'),
           _item('如何加载Icon图标', IconUsage(), 'icon'),
           _item('如何给 Widget 添加动画', AnimatedUsage(), 'animatedlogo'),
-          _item('使用 AnimatedWidget 重构动画', AnimatedWidgetUsage(), 'animatedwidget'),
+          _item('使用 AnimatedWidget 重构动画', AnimatedWidgetUsage(),
+              'animatedwidget'),
+          _item('标准 Hero 动画示例', StandardHeroUsage(),
+              'hero'),
         ],
       ),
     );
@@ -146,4 +152,5 @@ class _RouterNavigatorState extends State<RouterNavigator> {
       ),
     );
   }
+
 }
