@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 /// 如何给 Widget 添加动画
-class AnimatedLogo extends StatefulWidget {
+class AnimatedUsage extends StatefulWidget {
   @override
-  _AnimatedLogoState createState() => _AnimatedLogoState();
+  _AnimatedUsageState createState() => _AnimatedUsageState();
 }
 
-class _AnimatedLogoState extends State<AnimatedLogo>
+class _AnimatedUsageState extends State<AnimatedUsage>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController animationController;
