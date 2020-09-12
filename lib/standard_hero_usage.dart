@@ -46,7 +46,7 @@ class PhotoHero extends StatelessWidget {
 class HeroAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    timeDilation = 10.0;
+    timeDilation = 5.0;
 
     return Scaffold(
       appBar: AppBar(

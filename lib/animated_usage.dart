@@ -18,7 +18,7 @@ class _AnimatedUsageState extends State<AnimatedUsage>
     super.initState();
     animationController = AnimationController(
         // 动画执行时间为 2 秒
-        duration: const Duration(seconds: 2),
+        duration: const Duration(seconds: 1),
         vsync: this);
     // 如果需要知道动画执行的进度和状态,可以通过 animation 的监听器方法来给动画添加监听
     animation = Tween<double>(begin: 0, end: 300).animate(animationController)
